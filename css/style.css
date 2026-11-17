@@ -1,0 +1,29 @@
+body{
+    margin:0px;
+}
+
+/*initial styling of different elements*/
+.header_size{
+    height:15vh;
+    border:solid;
+}
+.top_row{
+    height:5vh;
+    border:solid;
+}
+.nav_row{
+    height:5vh;
+    border:solid;
+}
+.banner_size{
+    height:2ovh;
+    border:solid;
+}
+.footer_size{
+    height:5vh;
+    border:solid;
+}
+.body_size{
+    height:50%;
+    border:solid;
+}
