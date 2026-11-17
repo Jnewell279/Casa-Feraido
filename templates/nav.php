@@ -1,4 +1,4 @@
-<div>
+<div class="nav_row">
     <button>Home</button>
     <button>Houses</button>
     <button>Login</button>
