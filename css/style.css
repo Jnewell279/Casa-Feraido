@@ -30,3 +30,8 @@ body{
     height:50%;
     border:solid;
 }
+/*header styling*/
+.header_col{
+    display:grid;
+    grid-template-columns: 15vw 50vw 35vw;
+}

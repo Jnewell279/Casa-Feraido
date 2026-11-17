@@ -9,4 +9,10 @@
 <body>
 
 <div class="top_row"></div>
-<header class="header_size">CASA FERAIDO</header>
+<header class="header_size">
+    <div class="header_col">
+        <div><img src="images/logo_temp.png" alt="logo for the website" height="100px" width="100px"></div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</header>
