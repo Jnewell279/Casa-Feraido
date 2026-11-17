@@ -46,11 +46,14 @@ body{
 .body_col{
     display:grid;
     grid-template-columns: 7vw 86vw 7vw;
-    height:5000px;
+    height:1000px;
 }
 .body_main{
     border:solid;
     border-radius: 50px;
     border-color: #000000;
     background-color: #ffffff;
+}
+.body_login{
+    
 }
