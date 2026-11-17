@@ -6,33 +6,50 @@ body{
 /*initial styling of different elements*/
 .header_size{
     height:15vh;
-    border:solid;
+    background-color: #49ebae;
 }
 .top_row{
     height:3vh;
-    border:solid;
+    background-color: #83ffc0;
 }
 .nav_row{
     height:5vh;
-    border:solid;
     display:flex;
     justify-content: left;
     align-items: center;
+    background-color: #3bc18e;
 }
 .banner_size{
-    height:2ovh;
+    height: 16vh;
     border:solid;
 }
 .footer_size{
     height:5vh;
     border:solid;
+    background-color: #ecffb8;
 }
 .body_size{
-    height:70vh;
+    height:50vh;
     border:solid;
+    background-color: #e6f0a3;
 }
 /*header styling*/
 .header_col{
     display:grid;
     grid-template-columns: 15vw 50vw 34vw;
+}
+/*nav styling*/
+.nav_button{
+    background-color:#E6F0A3;
+    height: 30px;
+    border-radius: 5px;
+    margin: 2px;
+}
+/*body styling*/
+.main_body{
+    position: fixed;
+    display: none;
+    height:0;
+    width:0;
+    background-color: #ffffff;
 }

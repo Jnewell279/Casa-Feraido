@@ -1,8 +1,8 @@
 <div class="nav_row">
-    <button>Home</button>
-    <button>Houses</button>
-    <button>Login</button>
-    <button>Contact</button>
-    <button>Book</button>
-    <button>Services</button>
+    <button class="nav_button">Home</button>
+    <button class="nav_button">Houses</button>
+    <button class="nav_button">Login</button>
+    <button class="nav_button">Contact</button>
+    <button class="nav_button">Book</button>
+    <button class="nav_button">Services</button>
 </div>
