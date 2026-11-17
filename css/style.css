@@ -46,7 +46,7 @@ body{
 .body_col{
     display:grid;
     grid-template-columns: 7vw 86vw 7vw;
-    height:1000px;
+    height: 500px;
 }
 .body_main{
     border:solid;
@@ -54,6 +54,22 @@ body{
     border-color: #000000;
     background-color: #ffffff;
 }
-.body_login{
-    
+.body_login_col{
+    display:grid;
+    grid-template-columns: 7vw 86vw 7vw;
+    height: 300px;
+}
+.body_login_form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.body_login_box{
+    height: 80px;
+    width: 80vw;
+    background-color: #cccccc;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
