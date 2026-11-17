@@ -1,5 +1,6 @@
 body{
     margin:1px;
+    min-height:0vh;
 }
 
 /*initial styling of different elements*/
@@ -27,11 +28,11 @@ body{
     border:solid;
 }
 .body_size{
-    height:50%;
+    height:70vh;
     border:solid;
 }
 /*header styling*/
 .header_col{
     display:grid;
-    grid-template-columns: 15vw 50vw 35vw;
+    grid-template-columns: 15vw 50vw 34vw;
 }
