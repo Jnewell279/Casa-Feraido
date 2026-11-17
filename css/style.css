@@ -20,17 +20,14 @@ body{
     background-color: #3bc18e;
 }
 .banner_size{
-    height: 16vh;
-    border:solid;
+    height: 20vh;
 }
 .footer_size{
     height:5vh;
-    border:solid;
     background-color: #ecffb8;
 }
 .body_size{
-    height:50vh;
-    border:solid;
+    height:50%;
     background-color: #e6f0a3;
 }
 /*header styling*/
@@ -46,10 +43,14 @@ body{
     margin: 2px;
 }
 /*body styling*/
-.main_body{
-    position: fixed;
-    display: none;
-    height:0;
-    width:0;
+.body_col{
+    display:grid;
+    grid-template-columns: 7vw 86vw 7vw;
+    height:5000px;
+}
+.body_main{
+    border:solid;
+    border-radius: 50px;
+    border-color: #000000;
     background-color: #ffffff;
 }
