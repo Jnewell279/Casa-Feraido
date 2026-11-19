@@ -54,6 +54,7 @@ body{
     border-color: #000000;
     background-color: #ffffff;
 }
+/*login page design*/
 .body_login_col{
     display:grid;
     grid-template-columns: 7vw 85.5vw 7vw;
@@ -82,4 +83,29 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+/*sign up page*/
+.body_signup_col{
+    display:grid;
+    grid-template-columns: 7vw 85.5vw 7vw;
+    height: 49.5vh;
+}
+.body_signup_form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.body_signup_box{
+    height: 20px;
+    width: 80vw;
+    background-color: #cccccc;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:solid;
+}
+.signup_form_submit{
+    height: 50px;
+    width: 60vw;
 }
