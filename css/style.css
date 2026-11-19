@@ -56,8 +56,8 @@ body{
 }
 .body_login_col{
     display:grid;
-    grid-template-columns: 7vw 86vw 7vw;
-    height: 300px;
+    grid-template-columns: 7vw 85.5vw 7vw;
+    height: 49.5vh;
 }
 .body_login_form{
     display:flex;
@@ -69,6 +69,16 @@ body{
     height: 80px;
     width: 80vw;
     background-color: #cccccc;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:solid;
+}
+.login_form_submit{
+    height: 50px;
+    width: 60vw;
+}
+.signup_link_button{
     display:flex;
     justify-content: center;
     align-items: center;
