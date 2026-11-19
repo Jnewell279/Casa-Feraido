@@ -1,6 +1,13 @@
 <?php
 require_once "../includes/db.php";
 
+function redirectWithMessage($msg, $type = 'error') {
+    $_SESSION['message'] = $msg;
+    $_SESSION['msg_type'] = $type;
+    header("Location: ../signup_page.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $first_name = $_POST["first_name"];
@@ -10,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $first_name)){
         if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $last_name)){
-            if(preg_match("/^[\p{L}\s'-]{6,255}$/u", $username)){
-                if(preg_match("/^[\p{L}\s'-]{6,255}$/u", $password)){
+            if(preg_match("/^[\p{L}\s'-0-9]{6,255}$/u", $username)){
+                if(preg_match("/^[\p{L}\s'-0-9]{6,255}$/u", $password)){
 
                     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                     $sql = "INSERT INTO users(first_name, last_name, username, password) VALUES (:first_name ,:last_name ,:user ,:password)";
@@ -25,16 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         ":password" => $password
                     ]);
     }else{
-        echo "This is not an allowed password";
+        redirectWithMessage("Your password does not meet the required number of characters.");
     }
     }else{
-        echo "This is not an allowed username";
+        redirectWithMessage("Your username does not meet the required number of characters.");
     }
     }else{
-        echo "Your name cannot contain numbers";
+        redirectWithMessage("Your last name contains invalid characters.");
     }
     }else{
-        echo "Your name cannot contain numbers";
+        redirectWithMessage("Your first name contains invalid characters.");
     }
 
         
