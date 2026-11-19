@@ -88,7 +88,7 @@ body{
 .body_signup_col{
     display:grid;
     grid-template-columns: 7vw 85.5vw 7vw;
-    height: 49.5vh;
+    height: 51.5vh;
 }
 .body_signup_form{
     display:flex;
@@ -97,7 +97,7 @@ body{
     align-items: center;
 }
 .body_signup_box{
-    height: 20px;
+    height: 25px;
     width: 80vw;
     background-color: #cccccc;
     display:flex;

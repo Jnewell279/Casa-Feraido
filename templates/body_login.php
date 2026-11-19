@@ -8,7 +8,7 @@
         <input type="submit" value="Login" class="login_form_submit">
     </form>
 
-    <p class="signup_link_button"><a href="">Don't have an account?</a></p>
+    <p class="signup_link_button"><a href="signup_page.php">Don't have an account?</a></p>
     </div>
     <div></div>
 </div>
