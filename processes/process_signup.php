@@ -8,10 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    if(preg_match("/^[a-zA-Z]{0,255}$/", $first_name)){
-        if(preg_match("/^[a-zA-Z]{0,255}$/", $last_name)){
-            if(preg_match("/^[a-zA-Z0-9]{5,255}$/", $username)){
-                if(preg_match("/^[a-zA-Z0-9]{6,255}$/", $password)){
+    if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $first_name)){
+        if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $last_name)){
+            if(preg_match("/^[\p{L}\s'-]{6,255}$/u", $username)){
+                if(preg_match("/^[\p{L}\s'-]{6,255}$/u", $password)){
 
                     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                     $sql = "INSERT INTO users(first_name, last_name, username, password) VALUES (:first_name ,:last_name ,:user ,:password)";
