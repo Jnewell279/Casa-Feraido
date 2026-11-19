@@ -5,7 +5,7 @@ require_once "includes/db.php"
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $user = $_POST["username"]
-    $pass = password_hash($_POST["password"])
+    $pass = $_POST["password"]
 
     $sql = "SELECT * FROM users WHERE username=:user";
 
