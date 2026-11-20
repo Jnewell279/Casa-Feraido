@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         ":first_name" => $first_name,
                         ":last_name" => $last_name,
                         ":user" => $username,
-                        ":password" => $password
+                        ":password" => $pass_hash
                     ]);
                     redirectFromSuccess("You have been successfully signed up"); /*needs to be redirected to a profiles page */
     }else{
