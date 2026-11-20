@@ -10,10 +10,10 @@ function redirectWithMessage($msg, $type = 'error') {
 }
 
 function redirectFromSuccess(){
-    header(location: ../index.php);
+    header("location: ../index.php");
     exit();
 }
-
+/*come back to make it keep information and label the errors */
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $first_name = $_POST["first_name"];
