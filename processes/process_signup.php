@@ -10,7 +10,7 @@ function redirectWithMessage($msg, $type = 'error') {
 }
 
 function redirectFromSuccess(){
-    header("location: ../index.php");
+    header("location: ../profile_page.php");
     exit();
 }
 /*come back to make it keep information and label the errors */

@@ -8,7 +8,7 @@ function redirectBecauseError($msg, $type = 'error') {
     exit();
 }
 function redirectOnSuccess($msg, $type='error') {
-    header("location: ../index.php");
+    header("location: ../profile_page.php");
     exit();
 }
 
