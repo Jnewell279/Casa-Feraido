@@ -156,3 +156,8 @@ body{
 .body_house_fitting{
     padding-top:50px;
 }
+/*profile page*/
+.profile_body{
+    height:71.5vh;
+    background-color:#d1da94;
+}
