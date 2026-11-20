@@ -1,37 +1,34 @@
 <?php
 
-require_once "includes/db.php"
+function redirectBecauseError($msg, $type = 'error') {
+    $_SESSION['message'] = $msg;
+    $_SESSION['msg_type'] = $type;
+    header("Location: ../login_page.php");
+    exit();
+}
+
+
+require_once "../includes/db.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-    $user = $_POST["username"]
-    $pass = $_POST["password"]
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
 
     $sql = "SELECT * FROM users WHERE username=:user";
+    $hash = "SELECT password FROM users WHERE username =:user";
 
-    $stmt = $pdo ->prepare($sql)
+    if($pass_hash = password_verify($pass, $hash)){
+        $stmt = $pdo ->prepare($sql);
 
-    $stmt -> execute({
-        ":user" => $user
-    });
-
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-    if (password_verify($pass, $row['password'])) {
-        echo "login success";
-    } else {
-        echo "login fail: Password incorrect";
+        $stmt -> execute([
+            ":user" => $user
+        ]);
+    }else{
+        redirectBecauseError("This is the wrong password please re renter your details");
     }
-   /* $row = $stmt->fetch(
-        PDO::FETCH_ASSOC
-    );
 
-    if (!empty($row) && password_verify($pass, $row["password"])){
-        $_SESSION['username'] = $username;
-        header("Location: ../profile.php");
-    } else {
-        header("Location: ../login_page.php?login=0");
-    }*/
+    
 }
 
 ?>

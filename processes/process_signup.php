@@ -1,10 +1,16 @@
 <?php
+session_start();
 require_once "../includes/db.php";
 
 function redirectWithMessage($msg, $type = 'error') {
     $_SESSION['message'] = $msg;
     $_SESSION['msg_type'] = $type;
     header("Location: ../signup_page.php");
+    exit();
+}
+
+function redirectFromSuccess(){
+    header(location: ../index.php);
     exit();
 }
 
