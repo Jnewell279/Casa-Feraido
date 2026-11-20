@@ -1,3 +1,4 @@
+<div class="body_house_fitting">
 <?php
 $stmt = $pdo->query('SELECT house_name, houses, number_of_beds, house_type FROM properties');
 ?>
