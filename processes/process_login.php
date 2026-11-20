@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function redirectBecauseError($msg, $type = 'error') {
     $_SESSION['message'] = $msg;

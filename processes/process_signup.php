@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         ":user" => $username,
                         ":password" => $password
                     ]);
+                    redirectFromSuccess("You have been successfully signed up"); /*needs to be redirected to a profiles page */
     }else{
         redirectWithMessage("Your password does not meet the required number of characters.");
     }
