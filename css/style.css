@@ -35,6 +35,24 @@ body{
     display:grid;
     grid-template-columns: 15vw 50vw 34vw;
 }
+.header_logo{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 20px; 
+}
+.header_title{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #3bc18e;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right:450px
+}
 /*nav styling*/
 .nav_button{
     background-color:#E6F0A3;

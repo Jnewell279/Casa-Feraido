@@ -11,8 +11,8 @@
 <div class="top_row"></div>
 <header class="header_size">
     <div class="header_col">
-        <div><img src="images/logo_temp.png" alt="logo for the website" height="104" width="100px"></div>
-        <div>2</div>
+        <div class="header_logo"><img src="images/logo_temp.png" alt="logo for the website" height="104" width="100px"></div>
+        <div class="header_title">CASA Feraido</div>
         <div>3</div>
     </div>
 </header>

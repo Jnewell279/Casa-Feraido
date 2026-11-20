@@ -45,6 +45,10 @@
             <p><input placeholder="what does your holiday need?" type="text" name="search"></p>
             <input type="submit" value="Search">
         </form>
+
+        <?php
+        require_once "templates/body_houses.php";
+        ?>
     </div>
     <div></div>
 </div>
