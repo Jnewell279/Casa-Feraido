@@ -4,10 +4,13 @@ session_start();
 function redirectBecauseError($msg, $type = 'error') {
     $_SESSION['message'] = $msg;
     $_SESSION['msg_type'] = $type;
-    header("Location: ../login_page.php");
+    header("location: ../login_page.php");
     exit();
 }
-
+function redirectOnSuccess($msg, $type='error') {
+    header("location: ../index.php");
+    exit();
+}
 
 require_once "../includes/db.php";
 
@@ -25,9 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $stmt -> execute([
             ":user" => $user
         ]);
-    }else{
-        redirectBecauseError("This is the wrong password please re renter your details");
-    }
+        redirectOnSuccess('You have been successfully loged in.');
+    }/*else{
+        redirectBecauseError("This is the wrong password please re enter your details");
+    }*/
 
     
 }
