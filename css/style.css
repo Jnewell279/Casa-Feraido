@@ -149,7 +149,7 @@ body{
 }
 .card-img {
     width: 100%;
-    height: 180px;       /* Keeps all cards the exact same height */
+    height: 200px;       /* Keeps all cards the exact same height */
     object-fit: cover;   /* Crops the image neatly without stretching it */
     border-radius: 4px;
 }
