@@ -31,23 +31,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                     $stmt = $pdo->prepare($sql);
 
                     $stmt->execute([
-                        "::country" => $country,
-                        "::region" => $region,
-                        "::city" => $city,
-                        "::town" => $town
+                        ":country" => $country,
+                        ":region" => $region,
+                        ":city" => $city,
+                        ":town" => $town
                     ]);
                     redirectFromSuccess("You have been successfully signed up");
-    }else{
-        redirectWithMessage("Your password does not meet the required number of characters.");
+    }/**/else{
+        redirectWithMessage("You failed.");
     }
     }else{
-        redirectWithMessage("Your username does not meet the required number of characters.");
+        redirectWithMessage("You failed.");
     }
     }else{
-        redirectWithMessage("Your last name contains invalid characters.");
+        redirectWithMessage("You failed.");
     }
     }else{
-        redirectWithMessage("Your first name contains invalid characters.");
+        redirectWithMessage("You failed.");
     }
 
         
