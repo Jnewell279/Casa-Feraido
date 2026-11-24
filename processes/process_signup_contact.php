@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             ]);
             redirectFromSuccess("You have been successfully signed up");
     }else{
-        /*redirectWithMessage("Your phone number does not meet the required number of characters.");
+        redirectWithMessage("Your phone number does not meet the required number of characters.");
     }
     }else{
-        /*redirectWithMessage("Your email does not meet the required standard.");*/
+        redirectWithMessage("Your email does not meet the required standard.");
     }
     
 

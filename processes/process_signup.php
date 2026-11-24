@@ -50,7 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     }else{
         redirectWithMessage("Your first name contains invalid characters.");
     }
-
+    session_regenerate_id(true); // Prevents session fixation attacks
+        $_SESSION['user_id'] = $row['id']; // Change 'id' if your primary key is named differently
+        $_SESSION['username'] = $row['username'];
         
     }
 ?>
