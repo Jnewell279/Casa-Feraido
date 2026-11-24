@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $first_name)){
-        if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $last_name)){
-            if(preg_match("/^[\p{L}\s'-0-9]{6,255}$/u", $username)){
-                if(preg_match("/^[\p{L}\s'-0-9]{6,255}$/u", $password)){
+    if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $first_name)){
+        if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $last_name)){
+            if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $username)){
+                if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $password)){
 
                     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                     $sql = "INSERT INTO users(first_name, last_name, username, password) VALUES (:first_name ,:last_name ,:user ,:password)";

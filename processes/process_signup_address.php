@@ -10,7 +10,7 @@ function redirectWithMessage($msg, $type = 'error') {
 }
 
 function redirectFromSuccess(){
-    header("location: ../login_page.php");
+    header("location: ../profile_page.php");
     exit();
 }
 /*come back to make it keep information and label the errors */
@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $city = $_POST["city"];
     $town = $_POST["town"];
 
-    if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $country)){
-        if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $region)){
-            if(preg_match("/^/^[\p{L}\s'-]{1,255}$/u", $city)){
-                if(preg_match("/^[\p{L}\s'-]{1,255}$/u", $town)){
+    if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $country)){
+        if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $region)){
+            if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $city)){
+                if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $town)){
 
                     $sql = "INSERT INTO addresses(country, region, city, town) VALUES (:country, :region, :city, :town)";
 
