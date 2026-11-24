@@ -5,7 +5,7 @@
     <div class="profile_row">
         <div class="profile_info">user info and below
             <?php
-                print_r($_SESSION["username"]);
+                print_r($_SESSION["username"]); /*use sql to get the data linked to the users id number */
             ?>
         </div>
         <div class="profile_info">here t00</div>
