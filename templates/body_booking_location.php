@@ -3,27 +3,39 @@ $stmt = $pdo ->query("SELECT house_name FROM properties");
 $houses = [];
 
 foreach($stmt as $row):
-    $houses[] = htmlspecialchars($row['house_name']) 
- endforeach?>
-
+    $houses[] = htmlspecialchars($row['house_name']) ?>
+ <?php endforeach;?>
 
 <div class="contact_col">
     <div></div>
     <div class="body_main">
-        
-        <form class="contact_form" action="" method="post">
-            <input list="home_names" name="house_name" placeholder="House Name" class="contact_field    ">
-            <datalist id="home_names">
-                <?php foreach ($houses as $house): ?>
-                    <option value="<?= htmlspecialchars($house) ?>">
-                <?php endforeach; ?>
-            </datalist>
+        <div class="booking_col">
+            <div>
+                <form class="contact_form" action="" method="post">
+                    <input list="home_names" name="house_name" placeholder="House Name" class="booking_property">
+                    <datalist id="home_names">
+                        <?php foreach ($houses as $house): ?>
+                            <option value="<?= htmlspecialchars($house) ?>">
+                        <?php endforeach; ?>
+                    </datalist>
 
-            <input placeholder="Last name" type="text" name="last_name" class="contact_field">
-            <input placeholder="Email" type="text" name="email" class="contact_field">
-            <input placeholder="" type="text" name="" class="contact_field">
-            <input type="submit" value="continue">
-        </form>
+
+                    <input placeholder="Start date" type="date" name="start_date" class="booking_field">
+                    <input placeholder="End date" type="date" name="end_date" class="booking_field">
+            </div>
+            <div>
+                    <div class="booking_gap"></div>
+                    <input placeholder="Number of Adults" type="integer" name="num_adult" class="booking_field">
+                    <input placeholder="Number of Children" type="integer" name="num_child" class="booking_field">
+                    <input placeholder="First Name" type="text" name="first_name" class="booking_field">
+                    <input placeholder="Last Name" type="text" name="last_name" class="booking_field">
+                    <input placeholder="Email" type="text" name="email" class="booking_field">
+                    <input placeholder="Phone Number" type="integer" name="phone_number" class="booking_field">
+                    <input type="submit" value="continue">
+                </form>
+            </div>
+
+        </div>
     </div>
     <div></div>
 </div>

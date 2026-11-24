@@ -224,3 +224,27 @@ body{
     margin-top: 7px;
     margin-bottom:30px
 }
+/*unique booking style*/
+.booking_col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:10px;
+}
+.booking_field{
+    width:30vw;
+    height:30px;
+    background-color:#cccccc;
+    border:solid;
+    margin:7px;
+}
+.booking_property{
+    width:30vw;
+    height:80px;
+    background-color:#cccccc;
+    border:solid;
+    margin:7px;
+    margin-bottom:7rem;
+}
+.booking_gap{
+    margin-top: 18px;
+}
