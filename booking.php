@@ -6,7 +6,7 @@ require_once "templates/banner.php";
 ?>
 <div class="body_size">
     <?php
-        require_once "templates/body_booking.php";
+        require_once "templates/body_booking_location.php";
     ?>
 </div>
 
