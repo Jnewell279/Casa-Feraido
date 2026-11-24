@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         ":user" => $username,
                         ":password" => $pass_hash
                     ]);
-                    redirectFromSuccess("You have been successfully signed up"); /*needs to be redirected to a profiles page */
+                    /*redirectFromSuccess("You have been successfully signed up"); /*needs to be redirected to a profiles page */
     }else{
         redirectWithMessage("Your password does not meet the required number of characters.");
     }
@@ -53,4 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
         
     }
+    
+echo $string = implode(', ', $_SESSION['user_data']);
 ?>
