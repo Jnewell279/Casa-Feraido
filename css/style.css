@@ -59,6 +59,11 @@ body{
     height: 30px;
     border-radius: 5px;
     margin: 2px;
+
+}
+.nav_button a{
+    text-decoration: none;
+    color:#000000;
 }
 /*body styling*/
 .body_col{
@@ -190,4 +195,32 @@ body{
     width:auto;
     margin-top:10vh;
     background-color: #198765;
+}
+/*contact page*/
+.contact_col{
+    display:grid;
+    grid-template-columns: 7vw 85.5vw 7vw;
+    height: 51.5vh;
+}
+.contact_form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px
+}
+.contact_field{
+    width:75vw;
+    height:30px;
+    background-color:#cccccc;
+    border:solid;
+    margin:7px;
+}
+.contact_content{
+    width:75vw;
+    height:100px;
+    background-color:#cccccc;
+    border:solid;
+    margin-top: 7px;
+    margin-bottom:30px
 }
