@@ -10,7 +10,7 @@ function redirectWithMessage($msg, $type = 'error') {
 }
 
 function redirectFromSuccess(){
-    header("location: ../profile_page.php");
+    header("location: ../signup_page_contact.php");
     exit();
 }
 /*come back to make it keep information and label the errors */
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         ":user" => $username,
                         ":password" => $pass_hash
                     ]);
-                    /*redirectFromSuccess("You have been successfully signed up"); /*needs to be redirected to a profiles page */
+                    redirectFromSuccess("You have been successfully signed up");
     }else{
         redirectWithMessage("Your password does not meet the required number of characters.");
     }
@@ -53,6 +53,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
         
     }
-    
-echo $string = implode(', ', $_SESSION['user_data']);
 ?>
