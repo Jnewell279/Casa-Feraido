@@ -11,7 +11,7 @@ foreach($stmt as $row):
     <div class="body_main">
         <div class="booking_col">
             <div>
-                <form class="contact_form" action="" method="post">
+                <form class="contact_form" action="processes/process_booking.php" method="post">
                     <input list="home_names" name="house_name" placeholder="House Name" class="booking_property">
                     <datalist id="home_names">
                         <?php foreach ($houses as $house): ?>
@@ -31,7 +31,7 @@ foreach($stmt as $row):
                     <input placeholder="Last Name" type="text" name="last_name" class="booking_field">
                     <input placeholder="Email" type="text" name="email" class="booking_field">
                     <input placeholder="Phone Number" type="integer" name="phone_number" class="booking_field">
-                    <input type="submit" value="continue">
+                    <input type="submit" value="continue" class="booking_submit">
                 </form>
             </div>
 

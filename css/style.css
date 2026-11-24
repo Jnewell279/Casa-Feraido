@@ -76,6 +76,9 @@ body{
     border-radius: 50px;
     border-color: #000000;
     background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 /*login page design*/
 .body_login_col{
@@ -247,4 +250,12 @@ body{
 }
 .booking_gap{
     margin-top: 18px;
+}
+.booking_submit{
+    flex-basis: 100%;
+    margin-top: 25px;
+    max-width: 150px; 
+    margin-right: 100px;
+    width:100px;
+    height:30px;
 }
