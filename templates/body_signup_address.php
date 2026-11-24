@@ -6,9 +6,11 @@ session_start();
     <div></div>
     <div class="body_main">
         <form action="signup_page_address.php" method="post" class="body_signup_form">
-            <p><input placeholder="+44 7123 456789" type="text" name="phone_number" class="body_signup_box" required></p>
-            <p><input placeholder="Email@email.com" type="text" name="email" class="body_signup_box" required></p>
-            <input type="submit" value="Continue">
+            <p><input placeholder="Country" type="text" name="country" class="body_signup_box" required></p>
+            <p><input placeholder="Region" type="text" name="region" class="body_signup_box" required></p>
+            <p><input placeholder="City" type="text" name="city" class="body_signup_box" required></p>
+            <p><input placeholder="Town" type="text" name="town" class="body_signup_box" required></p>
+            <input type="submit" value="Finish">
             
         </form>
     </div>
