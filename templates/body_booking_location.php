@@ -2,9 +2,9 @@
 $stmt = $pdo ->query("SELECT house_name FROM properties");
 $houses = [];
 
-foreach($stmt as $row):?>
-<?= $houses[] = htmlspecialchars($row['house_name']) ?>
-<?php endforeach?>
+foreach($stmt as $row):
+    $houses[] = htmlspecialchars($row['house_name']) 
+ endforeach?>
 
 
 <div class="contact_col">
