@@ -42,14 +42,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     foreach($str_list_var as $row){
         $count+=1;
         if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $row)){
-            echo $row. "<br>";
         }else{
             /*redirectWithError("Your ". $int_list_name[$count-1]. " is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.");*/
         }
     }
     foreach($int_list_var as $row){
         if(preg_match("/^(?!\s+$)[\p{L}0-9]{1,15}$/u", $row)){
-            echo $row. "<br>";
         }else{
             /*redirectWithErr or("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.");*/
         }
@@ -86,33 +84,23 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             $sql = "INSERT INTO bookings(house_name, start_date, end_date, date_range, num_adult, num_child, first_name, last_name, email, phone_number)
             VALUES (:house, :start, :end, :days, :adults, :children, :first, :last, :email, :phone)";
 
-            try{
-                $stmt = $pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
 
-                $stmt->execute([
-                    ":house" => $house_name,
-                    ":start" => $start_date,
-                    ":end" => $end_date,
-                    ":days" => $day_range,
-                    ":adults" => $num_adult,
-                    ":children" => $num_child,
-                    ":first" => $first,
-                    ":last" => $last,
-                    ":email" => $email,
-                    ":phone" => $phone_num
-                ]);
-                }catch (PDOException $e) {
-                    if ($e->getCode() == '23000') {
-                        echo "Error: Invalid customer selected.";
-                    } else {
-                        echo "Database error: ";
-                    }
-                }
-                
-    }else{
+            $stmt->execute([
+                ":house" => $house_name,
+                ":start" => $start_date,
+                ":end" => $end_date,
+                ":days" => $day_range,
+                ":adults" => $num_adult,
+                ":children" => $num_child,
+                ":first" => $first,
+                ":last" => $last,
+                ":email" => $email,
+                ":phone" => $phone_num
+            ]);
+        }else{
             echo "no somebody else is there";
-        }   
+        }
+    }
 }
-}
-
 ?>
