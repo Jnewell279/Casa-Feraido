@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $first_name)){
         if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $last_name)){
-            if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $username)){
-                if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $password)){
+            if(preg_match("/^(?!\s+$)[\p{L}0-9\s'-]{1,255}$/u", $username)){
+                if(preg_match("/^(?!\s+$)[\p{L}0-9\s'-]{1,255}$/u", $password)){
 
                     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                     $sql = "INSERT INTO users(first_name, last_name, username, password) VALUES (:first_name ,:last_name ,:user ,:password)";
