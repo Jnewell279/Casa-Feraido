@@ -1,7 +1,8 @@
 <?php
 session_start();
+require_once "../includes/db.php";
 
-function redirectWithEror($msg, type = 'error'){
+function redirectWithError($msg, $type='error'){
     $_SESSION['message'] = $msg;
     $_SESSION['msg_type'] = $type;
     header("location: ../booking.php");
@@ -43,17 +44,28 @@ $count = 0;
         if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $row)){
             echo $row. "<br>";
         }else{
-            redirectWithEror("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.")
+            /*redirectWithError("Your ". $int_list_name[$count-1]. " is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.");*/
         }
     }
     foreach($int_list_var as $row){
         if(preg_match("/^(?!\s+$)[\p{L}0-9]{1,15}$/u", $row)){
             echo $row. "<br>";
         }else{
-            redirectWithEror("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.")
-
+            /*redirectWithErr or("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.");*/
         }
-
     }
+
+    $sql_date ="SELECT start_date, end_date FROM bookings";
+
+    $stmt_date = $pdo->prepare($sql_date);
+
+    $stmt_date->execute([]);
+
+    $bookings = $stmt_date->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($bookings as $row) {
+    echo "Start: " . $row['start_date'] . " - End: " . $row['end_date'] . "<br>";
+    }
+
 }
 ?>
