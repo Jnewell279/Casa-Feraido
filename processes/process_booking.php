@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+function redirectWithEror($msg, type = 'error'){
+    $_SESSION['message'] = $msg;
+    $_SESSION['msg_type'] = $type;
+    header("location: ../booking.php");
+    exit();
+}
+function redirectOnSuccess(){
+    header("location: ../success page");
+    exit();
+}
 
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -13,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $num_child = $_POST["num_child"];
     $fisrt = $_POST["first_name"];
     $last = $_POST["last_name"];
-    $email = $_POST["email"];
+    $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
     $phone_num = $_POST["phone_number"];
     
 $str_list_names =["House name","First name", "Last name"];
@@ -21,22 +31,29 @@ $int_list_names =["Number of adults", "Number of children", "Phone number"];
 
 $str_list_var =[$house_name, $fisrt, $last,];
 $int_list_var =[$num_adult, $num_child, $phone_num];
+
+$count = 0;
 /*      declares validation ^ and $ match to the entire entered string
                     rejects jut whitespace inputs
                              allow inputs from multiple language including space's apostrophes and hyphens
                                         has to be withing this length
                                                 enables unicode matching*/
     foreach($str_list_var as $row){
+        $count+=1;
         if(preg_match("/^(?!\s+$)[\p{L}\s'-]{1,255}$/u", $row)){
             echo $row. "<br>";
+        }else{
+            redirectWithEror("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.")
         }
     }
     foreach($int_list_var as $row){
         if(preg_match("/^(?!\s+$)[\p{L}0-9]{1,15}$/u", $row)){
             echo $row. "<br>";
         }else{
-            echo "this not";
+            redirectWithEror("Your". $int_list_name[$count-1]. "is one of the following: Not entered, Contains an invalid character or is outside the allowed range of characters allowed.")
+
         }
+
     }
 }
 ?>
