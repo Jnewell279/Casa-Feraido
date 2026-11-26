@@ -22,18 +22,18 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $num_adult = $_POST["num_adult"];
     $num_child = $_POST["num_child"];
-    $fisrt = $_POST["first_name"];
+    $first = $_POST["first_name"];
     $last = $_POST["last_name"];
     $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
     $phone_num = $_POST["phone_number"];
     
-$str_list_names =["House name","First name", "Last name"];
-$int_list_names =["Number of adults", "Number of children", "Phone number"];
+    $str_list_names =["House name","First name", "Last name"];
+    $int_list_names =["Number of adults", "Number of children", "Phone number"];
 
-$str_list_var =[$house_name, $fisrt, $last,];
-$int_list_var =[$num_adult, $num_child, $phone_num];
+    $str_list_var =[$house_name, $first, $last,];
+    $int_list_var =[$num_adult, $num_child, $phone_num];
 
-$count = 0;
+    $count = 0;
 /*      declares validation ^ and $ match to the entire entered string
                     rejects jut whitespace inputs
                              allow inputs from multiple language including space's apostrophes and hyphens
@@ -55,17 +55,64 @@ $count = 0;
         }
     }
 
-    $sql_date ="SELECT start_date, end_date FROM bookings";
+    $sql_property = "SELECT property_id FROM properties WHERE house_name=:house_name";
+
+    $stmt_property = $pdo->prepare($sql_property);
+
+    $stmt_property->execute([':house_name' => $house_name]);
+    
+    $house_id = $stmt_property->fetch(PDO::FETCH_ASSOC);
+
+    if ($house_id) {
+    $house_id = $house_id['property_id'];
+    }
+
+
+    $sql_date ="SELECT start_date, end_date, date_range FROM bookings WHERE property_id = :house_id";
+
 
     $stmt_date = $pdo->prepare($sql_date);
 
-    $stmt_date->execute([]);
+    $stmt_date->execute([":house_id" => $house_id]);
 
     $bookings = $stmt_date->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($bookings as $row) {
-    echo "Start: " . $row['start_date'] . " - End: " . $row['end_date'] . "<br>";
-    }
+    $start_day = (new DateTimeImmutable($start_date))->format('d');
+    $end_day = (new DateTimeImmutable($end_date))->format('d');
+    $day_range = $end_day - $start_day;
 
+    foreach($bookings as $bookings){
+        if($bookings["start_date"] ==""){
+            $sql = "INSERT INTO bookings(house_name, start_date, end_date, date_range, num_adult, num_child, first_name, last_name, email, phone_number)
+            VALUES (:house, :start, :end, :days, :adults, :children, :first, :last, :email, :phone)";
+
+            try{
+                $stmt = $pdo->prepare($sql);
+
+                $stmt->execute([
+                    ":house" => $house_name,
+                    ":start" => $start_date,
+                    ":end" => $end_date,
+                    ":days" => $day_range,
+                    ":adults" => $num_adult,
+                    ":children" => $num_child,
+                    ":first" => $first,
+                    ":last" => $last,
+                    ":email" => $email,
+                    ":phone" => $phone_num
+                ]);
+                }catch (PDOException $e) {
+                    if ($e->getCode() == '23000') {
+                        echo "Error: Invalid customer selected.";
+                    } else {
+                        echo "Database error: ";
+                    }
+                }
+                
+    }else{
+            echo "no somebody else is there";
+        }   
 }
+}
+
 ?>
