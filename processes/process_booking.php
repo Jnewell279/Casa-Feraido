@@ -2,6 +2,9 @@
 session_start();
 require_once "../includes/db.php";
 
+$userID = $_SESSION['user_id'];
+
+
 function redirectWithError($msg, $type='error'){
     $_SESSION['message'] = $msg;
     $_SESSION['msg_type'] = $type;
@@ -81,22 +84,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     foreach($bookings as $bookings){
         if($bookings["start_date"] ==""){
-            $sql = "INSERT INTO bookings(house_name, start_date, end_date, date_range, num_adult, num_child, first_name, last_name, email, phone_number)
-            VALUES (:house, :start, :end, :days, :adults, :children, :first, :last, :email, :phone)";
+            $sql = "INSERT INTO bookings(start_date, end_date, num_adult, num_child, user_id, property_id)
+            VALUES (:start, :end, :adults, :children, user_id, property_id)";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->execute([
-                ":house" => $house_name,
                 ":start" => $start_date,
                 ":end" => $end_date,
-                ":days" => $day_range,
                 ":adults" => $num_adult,
                 ":children" => $num_child,
-                ":first" => $first,
-                ":last" => $last,
-                ":email" => $email,
-                ":phone" => $phone_num
+                ":user_id" => $first_name,
+                ":user_id" => $last_name,
+                ":property_id" => $house_id
             ]);
         }else{
             echo "no somebody else is there";

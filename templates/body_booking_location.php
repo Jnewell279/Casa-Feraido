@@ -11,7 +11,7 @@ foreach($stmt as $row):
     <div class="body_main">
         <div class="booking_col">
             <div>
-                <form class="contact_form" action="processes/process_booking.php" method="post">
+                <form class="contact_form" action="processes/process_booking.php" method="POST">
                     <input list="home_names" name="house_name" placeholder="House Name" class="booking_property" required>
                     <datalist id="home_names">
                         <?php foreach ($houses as $house): ?>
