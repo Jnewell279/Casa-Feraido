@@ -267,15 +267,16 @@ body{
 /*success page*/
 .success_page{
     height:71.5vh;
-    background-color:#e6f0a3;
+    background-color:#f4ee7e;
     display:flex;
     justify-content: center;
     align-items:center;
 }
 .success_box{
-    height: 30vh;
+    height: 40vh;
     width:66vw;
     background-color:#fefefe;
     border:solid;
+    border-radius:15px;
     border-color:#000000;
 }

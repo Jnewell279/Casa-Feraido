@@ -16,7 +16,7 @@ function redirectWithError($msg, $type='error'){
     exit();
 }
 function redirectOnSuccess(){
-    header("location: ../success page");
+    header("location: ../success_page.php");
     exit();
 }
 
@@ -115,7 +115,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             ':property_id' => $house_id
         ]);
         
+        $_SESSION['start_date'] = $start_date;
+        $_SESSION['property_id'] = $house_id;
         echo "Definitely working!";
+        
     } else {
         echo "No, somebody else is booked during those dates.";
         }
