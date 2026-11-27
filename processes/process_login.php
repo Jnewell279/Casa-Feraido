@@ -7,7 +7,7 @@ function redirectBecauseError($msg, $type = 'error') {
     header("location: ../login_page.php");
     exit();
 }
-function redirectOnSuccess($msg, $type='error') {
+function redirectOnSuccess() {
     header("location: ../profile_page.php");
     exit();
 }
@@ -27,21 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "SELECT * FROM users WHERE username = :user LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([":user" => $user]);
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 2. Check if the user exists AND verify the password against the database column
     if ($row && password_verify($pass, $row['password'])) {
         
         // 3. Store user info in the session so other pages know they are logged in
         session_regenerate_id(true); // Prevents session fixation attacks
-        $sql_user = "SELECT user_id FROM users WHERE username = :user";
-        $stmt_user = $pdo->prepare($sql);
-        $stmt_user->execute([":user" => $user]);
-        $user_row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['user_id'] = $user_row['user_id']; // Change 'id' if your primary key is named differently
-        $_SESSION['username'] = $user_row['username'];
 
-        redirectOnSuccess('You have been successfully logged in.');
+        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['username'] = $row['username'];
+
+        redirectOnSuccess();
     } else {
         redirectBecauseError("Incorrect username or password. Please try again.");
     }

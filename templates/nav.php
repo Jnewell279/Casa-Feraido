@@ -6,5 +6,5 @@
     <button class="nav_button"><a href="booking.php">Book</a></button>
     <button class="nav_button">Services</button>
     <button class="nav_button"><a href="profile_page.php">Profile</a></button>
-    <?php// require_once "processes/process_admin_button.php";?>
+    <?php require_once "processes/process_admin_button.php";?>
 </div>
