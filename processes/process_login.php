@@ -34,8 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         // 3. Store user info in the session so other pages know they are logged in
         session_regenerate_id(true); // Prevents session fixation attacks
-        $_SESSION['user_id'] = $row['user_id']; // Change 'id' if your primary key is named differently
-        $_SESSION['username'] = $row['username'];
+        $sql_user = "SELECT user_id FROM users WHERE username = :user";
+        $stmt_user = $pdo->prepare($sql);
+        $stmt_user->execute([":user" => $user]);
+        $user_row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['user_id'] = $user_row['user_id']; // Change 'id' if your primary key is named differently
+        $_SESSION['username'] = $user_row['username'];
 
         redirectOnSuccess('You have been successfully logged in.');
     } else {
