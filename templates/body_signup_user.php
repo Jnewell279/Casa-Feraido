@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <div class="body_signup_col">
     <div></div>
     <div class="body_main">

@@ -1,6 +1,6 @@
 <div class="profile_body profile_col">
     <div></div>
-    <div class="profile_icon">profile picture</div>
+    <div class="profile_icon"><img src="images/profile_image.png" alt="" height="500px" width="auto"></div>
     <div></div>
     <div class="profile_row">
         <div class="profile_info">user info and below

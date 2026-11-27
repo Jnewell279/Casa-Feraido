@@ -23,7 +23,7 @@ $stmt_book = $pdo->($sql_book);
 
 $stmt_book->execute([":booking_id" => $booking_id]);
 
-$book_info = $pdo->fetchAll(PDO::FETCH_ASSOC);
+$book_info = $stmt_book->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
